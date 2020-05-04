@@ -500,21 +500,21 @@ def evaluate_print(ast, state, print_var, print_state, print_step, init_step):
             return evaluate_print(node.left, state, print_var, print_state, print_step, init_step) + evaluate_print(
                 node.right, state, print_var, print_state, print_step, init_step)
         except TypeError:
-            print("This operation is not supported but do you know that cats can rotate their ears 180 degrees?")
+            print("This operation is not supported")
     elif node.op == "MINUS":
         try:
             return evaluate_print(node.left, state, print_var, print_state, print_step, init_step) - evaluate_print(
                 node.right, state, print_var, print_state, print_step, init_step)
         except TypeError:
             print(
-                "This operation is not supported but do you know that meows are not innate cat language? They developed them to communicate with humans!")
+                "This operation is not supported")
     elif node.op == "MUL":
         try:
             return evaluate_print(node.left, state, print_var, print_state, print_step, init_step) * evaluate_print(
                 node.right, state, print_var, print_state, print_step, init_step)
         except TypeError:
             print(
-                "This operation is not supported but do you know that the hearing of the average cat is at least five times keener than that of a human adult?")
+                "This operation is not supported")
     elif node.op == "NOT":
         return not evaluate_print(node.ap, state, print_var, print_state, print_step, init_step)
         # print_state.append(copy.deepcopy(state))
@@ -596,7 +596,7 @@ def evaluate_print(ast, state, print_var, print_state, print_step, init_step):
             init_step = str(print_command(node.iffalse)) + (Sstr(init_step) - temp_step)
             evaluate_print(iffalse, state, print_var, print_state, print_step, init_step)
     else:
-        raise Exception("Nothing I can do bro")
+        raise Exception("Not expected")
 
 
 class Interpreter():
