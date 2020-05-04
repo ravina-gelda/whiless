@@ -14,14 +14,14 @@ load harness
 }
 
 @test "new-4" {
-  check 'while true ∨ true ∧ false ∨ true do x := 3' '⇒ skip, {x → 3}'
+  check 'while true ∧ false do x := 3' '⇒ skip, {}'
 }
 
 @test "new-5" {
-  check 'while true ∧ true ∧ true ∨ false do x := 3' '⇒ skip, {x → 3}'
+  check 'while -1 = 0 ∧ true do x := 3' '⇒ skip, {}'
 }
 
 @test "new-6" {
-  check 'if ( 1 - 1 ) = 0 then z8 := 09 else z3 := 90' '⇒ z3 := 9, {}
-⇒ skip, {z3 → 90}'
+  check 'if ( 1 - 1 ) = 0 then z8 := 09 else z3 := 90' '⇒ z8 := 9, {}
+⇒ skip, {z8 → 9}'
 }
